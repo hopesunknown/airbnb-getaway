@@ -1,6 +1,6 @@
 ## GetAway 2.0 - AirBnB Clone (README Updated April 2023)
 
-This will be an updated version of a previously built project called "GetAway", a vacation home rental website similar to AirBnb. This current version of GetAway will be built with NextJS, React, Tailwind CSS.
+This will be an updated version of a previously built project called "GetAway", a vacation home rental website similar to AirBnb. This current version of GetAway will be built with NextJS, React, TypeScript, Tailwind CSS.
 
 As of April 2nd, 2023 will be future plans to incorporate Ruby on Rails backend after frontend is built - this README is in progress.
 
