@@ -20,9 +20,9 @@ const Header = (props: Props) => {
       </div>
 
       {/* middle section */}
-      <div className='flex items-center md:border-2 rounded-full py-2'>
-        <input type='text' placeholder='Search' />
-        <MagnifyingGlassCircleIcon className='hidden md:inline-flex h-8 bg-sky-600 text-white rounded-full p-2 cursor-pointer' />
+      <div className='flex-grow items-center md:border-2 rounded-full py-2 md:shadow-xl'>
+        <input className='pl-5 bg-transparent outline-none' type='text' placeholder='Search' />
+        <MagnifyingGlassCircleIcon className='hidden md:inline-flex h-8 bg-sky-600 text-white rounded-full p-2 cursor-pointer md:mx-2' />
       </div>
 
       {/* right section */}
