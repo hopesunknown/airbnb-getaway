@@ -15,7 +15,7 @@ const Banner = (props: Props) => {
       <div className='absolute top-1/2 w-full text-center'>
         <p className='text-sm sm:text-lg'>GetAway there fast and then take it slow.</p>
         <p className='text-sm sm:text-lg'>Find your next adventure.</p>
-        <button>Explore</button>
+        <button className='text-sky-600 bg-white px-8 py-4 my-3 shadow-md rounded-full font-bold hover:shadow-lg hover:scale-105 transition duration-150'>Explore Rentals</button>
       </div>
     </div>
   )
