@@ -7,7 +7,7 @@ import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Home({exploreData}) {
   return (
     <>
       <Head>
@@ -24,6 +24,7 @@ export default function Home() {
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
           {/* Pull data from a server - API endpoints */}
+          {exploreData}
         </section>
       </main>
 
@@ -31,5 +32,14 @@ export default function Home() {
   )
 }
 export async function getStaticProps(){
-  
+  const exploreData = await fetch('https://links.papareact.com/pyp').
+  then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      exploreData
+    }
+  }
 }
