@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {InferGetStaticPropsType} from 'next';
 import Image from 'next/image';
 import Header from './../components/Header';
 import Banner from './../components/Banner';
@@ -8,7 +9,20 @@ import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home({exploreData}) {
+export async function getStaticProps() {
+  const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').
+  then(
+    (res) => res.json()
+  );
+
+  return {
+    props: {
+      exploreData
+    }
+  }
+}
+
+export default function Home({exploreData}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -24,29 +38,19 @@ export default function Home({exploreData}) {
       <main className='max-w-7xl mx-auto px-8 sm:px-16'>
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
-          {/* Pull data from a server - API endpoints */}
-          {exploreData?.map(({img, distance, location}) => (
+          <div>
+
+          </div>
+          {exploreData?.map((item) => (
             <SmallCard 
-              key={img}
-              img={img} 
-              distance={distance} 
-              location={location}
+              key={item.img}
+              img={item.img} 
+              distance={item.distance} 
+              location={item.location}
             />
           ))}
         </section>
       </main>
     </>
   )
-}
-export async function getStaticProps(){
-  const exploreData = await fetch('https://links.papareact.com/pyp').
-  then(
-    (res) => res.json()
-  );
-
-  return {
-    props: {
-      exploreData
-    }
-  }
 }
