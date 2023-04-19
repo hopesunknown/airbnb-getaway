@@ -2,6 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Header from './../components/Header';
 import Banner from './../components/Banner';
+import SmallCard from './../components/SmallCard';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 
@@ -24,10 +25,16 @@ export default function Home({exploreData}) {
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
           {/* Pull data from a server - API endpoints */}
-          {exploreData}
+          {exploreData?.map(({img, distance, location}) => (
+            <SmallCard 
+              key={img}
+              img={img} 
+              distance={distance} 
+              location={location}
+            />
+          ))}
         </section>
       </main>
-
     </>
   )
 }
