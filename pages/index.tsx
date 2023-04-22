@@ -4,8 +4,10 @@ import Image from 'next/image';
 import Header from './../components/Header';
 import Banner from './../components/Banner';
 import SmallCard from './../components/SmallCard';
+import MediumCard from './../components/MediumCard';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
+import { Key } from 'react';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,14 +17,20 @@ export async function getStaticProps() {
     (res) => res.json()
   );
 
+  const cardsData = await fetch('https://www.papareact.com/zp1').
+  then(
+    (res) => res.json()
+  )
+
   return {
     props: {
-      exploreData
+      exploreData,
+      cardsData
     }
   }
 }
 
-export default function Home({exploreData}: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({exploreData, cardsData}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -39,7 +47,7 @@ export default function Home({exploreData}: InferGetStaticPropsType<typeof getSt
         <section className='pt-6'>
           <h2 className='text-4xl font-semibold pb-5'>Explore Nearby</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
-            {exploreData?.map((item) => (
+            {exploreData?.map((item: { img: string; distance: string; location: string; }) => (
               <SmallCard 
                 key={item.img}
                 img={item.img} 
@@ -48,6 +56,16 @@ export default function Home({exploreData}: InferGetStaticPropsType<typeof getSt
               />
             ))}
           </div>
+        </section>
+        <section>
+          <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+          {cardsData.map((item: { img: string; title: string; }) => (
+            <MediumCard 
+              key={item.img}
+              img={item.img} 
+              title={item.title}
+            />
+          ))}
         </section>
       </main>
     </>
