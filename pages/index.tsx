@@ -58,14 +58,16 @@ export default function Home({exploreData, cardsData}: InferGetStaticPropsType<t
           </div>
         </section>
         <section>
-          <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
-          {cardsData.map((item: { img: string; title: string; }) => (
-            <MediumCard 
+          <div className='flex space-x-3 overflow-scroll'>
+            <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+            {cardsData?.map((item: { img: string; title: string; }) => (
+              <MediumCard 
               key={item.img}
               img={item.img} 
               title={item.title}
-            />
-          ))}
+              />
+            ))}
+          </div>
         </section>
       </main>
     </>
