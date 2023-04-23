@@ -17,7 +17,7 @@ export async function getStaticProps() {
     (res) => res.json()
   );
 
-  const cardsData = await fetch('https://www.papareact.com/zp1').
+  const cardsData = await fetch('https://www.jsonkeeper.com/b/VHHT').
   then(
     (res) => res.json()
   )
@@ -58,8 +58,8 @@ export default function Home({exploreData, cardsData}: InferGetStaticPropsType<t
           </div>
         </section>
         <section>
-          <div className='flex space-x-3 overflow-scroll'>
             <h2 className='text-4xl font-semibold py-8'>Live Anywhere</h2>
+            <div className='flex space-x-3 overflow-scroll scrollbar-hide p-3 -ml-3'>
             {cardsData?.map((item: { img: string; title: string; }) => (
               <MediumCard 
               key={item.img}
