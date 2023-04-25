@@ -5,6 +5,7 @@ import Header from './../components/Header';
 import Banner from './../components/Banner';
 import SmallCard from './../components/SmallCard';
 import MediumCard from './../components/MediumCard';
+import LargeCard from './../components/LargeCard';
 import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
 import { Key } from 'react';
@@ -69,6 +70,13 @@ export default function Home({exploreData, cardsData}: InferGetStaticPropsType<t
             ))}
           </div>
         </section>
+
+        <LargeCard 
+          img='https://links.papareact.com/4cj'
+          title='The Great Outdoors'
+          description='Wishlists curated by GetAway'
+          buttonText='Get Inspired'
+        />
       </main>
     </>
   )
