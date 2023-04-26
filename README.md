@@ -1,6 +1,6 @@
 ## GetAway 2.0 - AirBnB Clone (README Updated April 2023)
 
-This will be an updated version of a previously built project called "GetAway", a vacation home rental website similar to AirBnb. This current version of GetAway will be built with NextJS, React, TypeScript, Tailwind CSS.
+This will be an updated version of a previously built project called "GetAway", a vacation home rental website similar to AirBnb. This current version of GetAway will be built with NextJS, React, TypeScript, Tailwind CSS, Ruby on Rails.
 
 As of April 2nd, 2023 will be future plans to incorporate Ruby on Rails backend after frontend is built - this README is in progress.
 
@@ -25,5 +25,3 @@ You can start editing the page by modifying `pages/index.tsx`. The page auto-upd
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
