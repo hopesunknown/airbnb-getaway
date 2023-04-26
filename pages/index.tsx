@@ -1,16 +1,11 @@
 import Head from 'next/head';
 import {InferGetStaticPropsType} from 'next';
-import Image from 'next/image';
 import Header from './../components/Header';
 import Banner from './../components/Banner';
 import SmallCard from './../components/SmallCard';
 import MediumCard from './../components/MediumCard';
 import LargeCard from './../components/LargeCard';
-import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
-import { Key } from 'react';
-
-const inter = Inter({ subsets: ['latin'] })
 
 export async function getStaticProps() {
   const exploreData = await fetch('https://www.jsonkeeper.com/b/4G1G').
