@@ -1,8 +1,8 @@
-import {useState} from 'react';
+import {SetStateAction, useState} from 'react';
 import Image from 'next/image';
 import {MagnifyingGlassCircleIcon, GlobeAltIcon, Bars3Icon, UserCircleIcon, UsersIcon} from '@heroicons/react/24/solid';
-import 'react-date-range/dist/styles.css';
-import 'react-date-range/dist/theme/default.css';
+import 'react-date-range/dist/styles.css'; // main css file
+import 'react-date-range/dist/theme/default.css'; // theme css file
 import {DateRangePicker} from 'react-date-range';
 
 type Props = {}
@@ -16,6 +16,11 @@ const Header = (props: Props) => {
     startDate: startDate,
     endDate: endDate,
     key: 'Selection'
+  }
+
+  const handleSelect = (ranges: {selection: {startDate: SetStateAction<Date>; endDate: SetStateAction<Date>;}; }) => {
+    setStartDate(ranges.selection.startDate);
+    setEndDate(ranges.selection.endDate);
   }
 
   return (
@@ -55,6 +60,9 @@ const Header = (props: Props) => {
         <div>
           <DateRangePicker 
             ranges={[selectionRange]}
+            minDate={new Date()}
+            rangeColors={["#0284C7"]}
+            onChange={handleSelect}
           />
         </div>
       )}
