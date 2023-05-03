@@ -15,7 +15,7 @@ const Header = (props: Props) => {
   const selectionRange = {
     startDate: startDate,
     endDate: endDate,
-    key: 'Selection'
+    key: 'selection'
   }
 
   const handleSelect = (ranges: {selection: {startDate: SetStateAction<Date>; endDate: SetStateAction<Date>;}; }) => {
