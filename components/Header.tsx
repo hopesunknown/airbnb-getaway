@@ -64,6 +64,14 @@ const Header = (props: Props) => {
             rangeColors={["#0284C7"]}
             onChange={handleSelect}
           />
+          <div className='flex items-center border-b mb-4'>
+            <h2 className='text-2xl flex-grow font-semibold'>Number of Guests</h2>
+            <UsersIcon className='h-5' />
+            <input
+              type='number'
+              className='w-12 pl-2 text-lg outline-none text-sky-600' 
+            />
+          </div>
         </div>
       )}
     </header>
