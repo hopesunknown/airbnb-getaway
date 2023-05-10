@@ -24,6 +24,10 @@ const Header = (props: Props) => {
     setEndDate(ranges.selection.endDate);
   }
 
+  const resetInput = () => {
+    setSearchInput("");
+  };
+
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10'>
       <div className='relative flex items-center h-10 cursor-pointer my-auto'>
@@ -72,8 +76,13 @@ const Header = (props: Props) => {
               value={noOfGuests}
               onChange={(e) => setNoOfGuests(e.target.value)}
               type='number'
+              min={1}
               className='w-12 pl-2 text-lg outline-none text-sky-600' 
             />
+          </div>
+          <div className='flex'>
+            <button onClick={resetInput} className='flex-grow text-gray-500'>Cancel</button>
+            <button className='flex-grow text-red-400'>Search</button>
           </div>
         </div>
       )}
