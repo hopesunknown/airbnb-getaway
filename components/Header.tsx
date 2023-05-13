@@ -4,6 +4,7 @@ import {MagnifyingGlassCircleIcon, GlobeAltIcon, Bars3Icon, UserCircleIcon, User
 import 'react-date-range/dist/styles.css'; // main css file
 import 'react-date-range/dist/theme/default.css'; // theme css file
 import {DateRangePicker} from 'react-date-range';
+import {useRouter} from 'next/dist/client/router';
 
 type Props = {}
 
@@ -12,6 +13,8 @@ const Header = (props: Props) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+  const router = useRouter();
+
 
   const selectionRange = {
     startDate: startDate,
@@ -30,7 +33,10 @@ const Header = (props: Props) => {
 
   return (
     <header className='sticky top-0 z-50 grid grid-cols-3 bg-white shadow-md p-5 md:px-10'>
-      <div className='relative flex items-center h-10 cursor-pointer my-auto'>
+      <div 
+        onClick={() => router.push("/")} 
+        className='relative flex items-center h-10 cursor-pointer my-auto'
+      >
         <Image 
           src='/./../public/logo.png' 
           alt='company logo and name' 
