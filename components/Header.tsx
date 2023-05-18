@@ -8,7 +8,7 @@ import {useRouter} from 'next/dist/client/router';
 
 type Props = {}
 
-const Header = (props: Props) => {
+const Header = (props: {placeholder: string}) => {
   const [searchInput, setSearchInput] = useState('');
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -65,7 +65,7 @@ const Header = (props: Props) => {
           onChange={(e) => setSearchInput(e.target.value)}
           className='flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400' 
           type='text' 
-          placeholder='Search' 
+          placeholder={placeholder || "Start your search"}
         />
         <MagnifyingGlassCircleIcon className='hidden md:inline-flex h-8 bg-sky-600 text-white rounded-full p-2 cursor-pointer md:mx-2' />
       </div>
