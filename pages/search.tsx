@@ -5,7 +5,7 @@ import {format} from 'date-fns';
 
 type Props = {};
 
-const Search = (props: Props) => {
+const Search = ({searchResults}) => {
   const router = useRouter();
   const {location, startDate, endDate, noOfGuests} = router.query;
   const formattedStartDate = format(new Date(startDate), 'dd MMMM yy');
@@ -13,6 +13,7 @@ const Search = (props: Props) => {
   const range = `${formattedStartDate} - ${formattedEndDate}`
 
   // console.log(router.query);
+  // console.log(searchResults);
 
   return (
     <div>
@@ -38,3 +39,13 @@ const Search = (props: Props) => {
 }
 
 export default Search;
+
+export async function getServerSideProps() {
+  const searchResults = await fetch('https://links.papareact.com/isz').then(res => res.json());
+
+  return {
+    props: {
+      searchResults,
+    }
+  }
+}
