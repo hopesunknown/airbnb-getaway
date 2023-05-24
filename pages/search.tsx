@@ -1,6 +1,7 @@
 import {useRouter} from 'next/dist/client/router';
 import Header from './../components/Header.jsx';
 import Footer from './../components/Footer.jsx';
+import InfoCard from './../components/InfoCard.jsx';
 import {format} from 'date-fns';
 
 type Props = {};
@@ -31,6 +32,18 @@ const Search = ({searchResults}) => {
             <p className='button'>Rooms and beds</p>
             <p className='button'>More filters</p>
           </div>
+
+          {searchResults?.map((item: {img: string; location: string; title: string; description: string; star: string; price: string; total: string}) => (
+            <InfoCard 
+              key={item.img}
+              img={item.img}
+              location={item.location}
+              description={item.description}
+              star={item.star}
+              price={item.price}
+              total={item.total}
+            />
+          ))}
         </section>
       </main>
       <Footer />
