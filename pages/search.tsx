@@ -6,6 +6,16 @@ import {format} from 'date-fns';
 
 type Props = {};
 
+interface Data {
+  img: string;
+  location: string;
+  title: string;
+  description: string;
+  star: string;
+  price: string;
+  total: string;
+}
+
 const Search = ({searchResults}) => {
   const router = useRouter();
   const {location, startDate, endDate, noOfGuests} = router.query;
@@ -33,17 +43,20 @@ const Search = ({searchResults}) => {
             <p className='button'>More filters</p>
           </div>
 
-          {searchResults?.map((item: {img: string; location: string; title: string; description: string; star: string; price: string; total: string}) => (
-            <InfoCard 
-              key={item.img}
-              img={item.img}
-              location={item.location}
-              description={item.description}
-              star={item.star}
-              price={item.price}
-              total={item.total}
-            />
-          ))}
+          <div className='flex flex-col'>
+            {searchResults?.map((item: Data) => (
+              <InfoCard 
+                key={item.img}
+                img={item.img}
+                location={item.location}
+                title={item.title}
+                description={item.description}
+                star={item.star}
+                price={item.price}
+                total={item.total}
+              />
+            ))}
+          </div>
         </section>
       </main>
       <Footer />
