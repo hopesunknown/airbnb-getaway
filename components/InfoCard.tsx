@@ -1,10 +1,14 @@
-import React from 'react'
+import Image from 'next/image';
 
 type Props = {}
 
-const InfoCard = ({img, location, title, description, star, price, total}) => {
+const InfoCard = (props: {img: string, location: string, title: string, description: string, star: string, price: string, total: string}) => {
+  const {img, location, title, description, star, price, total} = props;
+  
   return (
-    <div>InfoCard</div>
+    <div className='relative h-24 w-40 md:h-52 md:w-80 flex-shrink-0'>
+      <Image alt='information card room image' src={img} fill className='objectFit'/>
+    </div>
   )
 }
 
